@@ -7,7 +7,7 @@
 dependencies {
     compile 'com.github.florent37:rxandroidorm:1.0.0'
     provided 'com.github.florent37:rxandroidorm-annotations:1.0.0'
-    annotationProcessor 'com.github.florent37:freezer-compiler:1.0.0'
+    annotationProcessor 'com.github.florent37:rxandroidorm-compiler:1.0.0'
 }
 ```
 
