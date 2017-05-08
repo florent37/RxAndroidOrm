@@ -1,0 +1,5 @@
+deployment:
+  release:
+    tag: /v.*/
+    commands:
+      - ./gradlew assembleDebug install :rxAndroidOrm:bintrayUpload :rxAndroidOrm-annotations:bintrayUpload :rxAndroidOrm-compiler:bintrayUpload
