@@ -22,13 +22,13 @@ Observable.fromArray(
                 .flatMap(computerDb::add)
                 .subscribe();
 
-        Observable.just(new Computer(Computer.MAC, "Mac Mini"))
+Observable.just(new Computer(Computer.MAC, "Mac Mini"))
                 .flatMap(computerDb::add)
                 .doOnNext(computer -> computer.getSoftwares().add(new Software("Photoshop")))
                 .flatMap(computerDb::update)
                 .subscribe();
 
-        computerDb.select()
+computerDb.select()
                 .label().equalsTo("MasterRace")
                 .or()
                 .softwares(SoftwareDatabase.where().name().equalsTo("Photoshop"))
