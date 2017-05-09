@@ -1,5 +1,7 @@
 package com.github.florent37.rxandroidorm.generator;
 
+import com.github.florent37.rxandroidorm.Constants;
+import com.github.florent37.rxandroidorm.ProcessUtils;
 import com.squareup.javapoet.ArrayTypeName;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
@@ -16,9 +18,6 @@ import java.util.Set;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.VariableElement;
-
-import com.github.florent37.rxandroidorm.Constants;
-import com.github.florent37.rxandroidorm.ProcessUtils;
 
 import io.reactivex.ObservableEmitter;
 
@@ -331,6 +330,8 @@ public class ModelORMGenerator {
                 .build();
 
         this.dao = TypeSpec.classBuilder(ProcessUtils.getModelDaoName(modelName)) //UserDatabase
+                .addSuperinterface(ParameterizedTypeName.get((ClassName) Constants.databaseCommonInterfaceClassName, modelClassName))
+
                 .addModifiers(Modifier.PUBLIC)
 
                 .addField(ClassName.get(Constants.DAO_PACKAGE, Constants.QUERY_LOGGER), "logger")
@@ -360,6 +361,7 @@ public class ModelORMGenerator {
                 //        .build())
 
                 .addMethod(MethodSpec.methodBuilder("select")
+                        .addAnnotation(Override.class)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(queryBuilderClassName)
                         .addStatement("return new $T(false,logger)", queryBuilderClassName)
@@ -373,6 +375,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("add")
+                        .addAnnotation(Override.class)
                         .addParameter(modelClassName, "object", Modifier.FINAL)
                         .returns(ProcessUtils.observableOf(modelClassName))
                         .addModifiers(Modifier.PUBLIC)
@@ -391,6 +394,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("add")
+                        .addAnnotation(Override.class)
                         .returns(ProcessUtils.observableOf(listObjectsClassName))
                         .addParameter(listObjectsClassName, "objects", Modifier.FINAL)
                         .addModifiers(Modifier.PUBLIC)
@@ -413,6 +417,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("update")
+                        .addAnnotation(Override.class)
                         .addParameter(modelClassName, "object", Modifier.FINAL)
                         .returns(ProcessUtils.observableOf(modelClassName))
                         .addModifiers(Modifier.PUBLIC)
@@ -431,6 +436,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("update")
+                        .addAnnotation(Override.class)
                         .returns(ProcessUtils.observableOf(listObjectsClassName))
                         .addParameter(listObjectsClassName, "objects", Modifier.FINAL)
                         .addModifiers(Modifier.PUBLIC)
@@ -481,6 +487,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("delete")
+                        .addAnnotation(Override.class)
                         .addParameter(modelClassName, "object", Modifier.FINAL)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(ProcessUtils.observableOf(TypeName.BOOLEAN.box()))
@@ -499,6 +506,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("delete")
+                        .addAnnotation(Override.class)
                         .addParameter(listObjectsClassName, "objects", Modifier.FINAL)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(ProcessUtils.observableOf(TypeName.BOOLEAN.box()))
@@ -519,6 +527,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("deleteAll")
+                        .addAnnotation(Override.class)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(ProcessUtils.observableOf(TypeName.BOOLEAN.box()))
 
@@ -536,6 +545,7 @@ public class ModelORMGenerator {
                         .build())
 
                 .addMethod(MethodSpec.methodBuilder("count")
+                        .addAnnotation(Override.class)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(ProcessUtils.observableOf(TypeName.INT.box()))
 

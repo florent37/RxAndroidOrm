@@ -20,6 +20,7 @@ public class Constants {
 
     public static final String DAO_CLASS_NAME = "RxAndroidOrm";
     public static final String DATABASE_HELPER_CLASS_NAME = "DatabaseHelper";
+    public static final String DATABASE_COMMON_INTERFACE_NAME = "Database";
     public static final String MIGRATOR = "Migrator";
     public static final String CALLBACK = "Callback";
 
@@ -31,6 +32,7 @@ public class Constants {
     public static final TypeName daoClassName = ClassName.get(Constants.DAO_PACKAGE, DAO_CLASS_NAME);
     public static final TypeName dbHelperClassName = ClassName.get(Constants.DAO_PACKAGE, DATABASE_HELPER_CLASS_NAME);
     public static final TypeName queryBuilderClassName = ClassName.get(Constants.DAO_PACKAGE, QUERY_BUILDER_SUFFIX);
+    public static final TypeName databaseCommonInterfaceClassName = ClassName.get(Constants.DAO_PACKAGE, DATABASE_COMMON_INTERFACE_NAME);
     public static final TypeName migrator = ClassName.get(Constants.DAO_PACKAGE+".migration", MIGRATOR);
 
     public static final TypeName applicationClassName = ClassName.get("android.app", "Application");
