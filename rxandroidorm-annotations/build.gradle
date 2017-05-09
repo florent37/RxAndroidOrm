@@ -2,17 +2,17 @@ apply plugin: 'java'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'freezer-annotations'
+    bintrayName = 'rxandroidorm-annotations'
     orgName = 'florent37'
 
-    publishedGroupId = 'fr.xebia.android.freezer'
-    libraryName = 'Freezer'
-    artifact = 'freezer-annotations'
+    publishedGroupId = 'com.github.florent37'
+    libraryName = 'RxAndroidOrm'
+    artifact = 'rxandroidorm-annotations'
 
-    libraryDescription = 'Annotations for Freezer'
+    libraryDescription = 'Annotations for RxAndroidOrm'
 
-    siteUrl = 'https://github.com/florent37/Freezer'
-    gitUrl = 'https://github.com/florent37/Freezer.git'
+    siteUrl = 'https://github.com/florent37/RxAndroidOrm'
+    gitUrl = 'https://github.com/florent37/RxAndroidOrm.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 

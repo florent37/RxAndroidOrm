@@ -5,9 +5,9 @@
 [ ![Download](https://api.bintray.com/packages/florent37/maven/rxandroidorm-compiler/images/download.svg) ](https://bintray.com/florent37/maven/rxandroidorm-compiler/_latestVersion)
 ```java
 dependencies {
-    compile 'com.github.florent37:rxandroidorm:1.0.0'
-    provided 'com.github.florent37:rxandroidorm-annotations:1.0.0'
-    annotationProcessor 'com.github.florent37:rxandroidorm-compiler:1.0.0'
+    compile 'com.github.florent37:rxandroidorm:1.0.1'
+    provided 'com.github.florent37:rxandroidorm-annotations:1.0.1'
+    annotationProcessor 'com.github.florent37:rxandroidorm-compiler:1.0.1'
 }
 ```
 
