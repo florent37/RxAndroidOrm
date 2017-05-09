@@ -20,6 +20,7 @@ public class Constants {
 
     public static final String DAO_CLASS_NAME = "RxAndroidOrm";
     public static final String DATABASE_HELPER_CLASS_NAME = "DatabaseHelper";
+    public static final String DATABASE_COMMON_INTERFACE_NAME = "Database";
     public static final String MIGRATOR = "Migrator";
     public static final String CALLBACK = "Callback";
 
@@ -35,6 +36,7 @@ public class Constants {
 
     public static final TypeName applicationClassName = ClassName.get("android.app", "Application");
     public static final TypeName databaseClassName = ClassName.get("android.database.sqlite", "SQLiteDatabase");
+    public static final TypeName databaseCommonInterfaceClassName = ClassName.get(DAO_PACKAGE+".api", DATABASE_COMMON_INTERFACE_NAME);
     public static final TypeName sqliteOpenHelperClassName = ClassName.get("android.database.sqlite", "SQLiteOpenHelper");
     public static final TypeName contextClassName = ClassName.get("android.content", "Context");
     public static final TypeName cursorClassName = ClassName.get("android.database", "Cursor");
