@@ -3,6 +3,15 @@ package com.github.florent37.rxandroidorm;
 import com.github.florent37.rxandroidorm.annotations.DatabaseName;
 import com.github.florent37.rxandroidorm.annotations.Migration;
 import com.github.florent37.rxandroidorm.annotations.Model;
+import com.github.florent37.rxandroidorm.generator.CursorHelperGenerator;
+import com.github.florent37.rxandroidorm.generator.DatabaseHelperGenerator;
+import com.github.florent37.rxandroidorm.generator.EnumColumnGenerator;
+import com.github.florent37.rxandroidorm.generator.ModelEntityProxyGenerator;
+import com.github.florent37.rxandroidorm.generator.ModelORMGenerator;
+import com.github.florent37.rxandroidorm.generator.ModelORMInterfaceGenerator;
+import com.github.florent37.rxandroidorm.generator.PrimitiveCursorHelperGenerator;
+import com.github.florent37.rxandroidorm.generator.QueryBuilderGenerator;
+import com.github.florent37.rxandroidorm.generator.QueryLoggerGenerator;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
@@ -24,15 +33,6 @@ import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
-
-import com.github.florent37.rxandroidorm.generator.CursorHelperGenerator;
-import com.github.florent37.rxandroidorm.generator.DatabaseHelperGenerator;
-import com.github.florent37.rxandroidorm.generator.EnumColumnGenerator;
-import com.github.florent37.rxandroidorm.generator.ModelEntityProxyGenerator;
-import com.github.florent37.rxandroidorm.generator.ModelORMGenerator;
-import com.github.florent37.rxandroidorm.generator.PrimitiveCursorHelperGenerator;
-import com.github.florent37.rxandroidorm.generator.QueryBuilderGenerator;
-import com.github.florent37.rxandroidorm.generator.QueryLoggerGenerator;
 
 /**
  * Created by florentchampigny on 07/01/2016.
@@ -82,6 +82,7 @@ public class Processor extends AbstractProcessor {
         writeFile(JavaFile.builder(Constants.DAO_PACKAGE, ModelEntityProxyGenerator.generateModelProxyInterface()).build());
         writeFile(JavaFile.builder(Constants.DAO_PACKAGE, new PrimitiveCursorHelperGenerator().generate()).build());
         writeFile(JavaFile.builder(Constants.DAO_PACKAGE, new QueryBuilderGenerator().generate()).build());
+        writeFile(JavaFile.builder(Constants.DAO_PACKAGE, new ModelORMInterfaceGenerator().generate()).build());
     }
 
     protected void writeJavaFiles() {
@@ -177,5 +178,9 @@ public class Processor extends AbstractProcessor {
         writeFile(JavaFile.builder(ProcessUtils.getObjectPackage(element), modelORMGenerator.getQueryBuilder()).build());
 
         daosList.add(ProcessUtils.getModelDao(element));
+    }
+
+    private void generateModelDaoInterface() {
+        ModelORMInterfaceGenerator modelORMInterfaceGenerator = new ModelORMInterfaceGenerator();
     }
 }

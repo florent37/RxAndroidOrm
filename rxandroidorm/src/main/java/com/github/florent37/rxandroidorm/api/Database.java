@@ -1,5 +1,4 @@
 package com.github.florent37.rxandroidorm.api;
-
 import java.util.List;
 
 import io.reactivex.Observable;

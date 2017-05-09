@@ -361,6 +361,7 @@ public class ModelORMGenerator {
                 //        .build())
 
                 .addMethod(MethodSpec.methodBuilder("select")
+                        .addAnnotation(Override.class)
                         .addModifiers(Modifier.PUBLIC)
                         .returns(queryBuilderClassName)
                         .addStatement("return new $T(false,logger)", queryBuilderClassName)

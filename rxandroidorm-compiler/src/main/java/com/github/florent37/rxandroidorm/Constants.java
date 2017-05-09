@@ -32,11 +32,11 @@ public class Constants {
     public static final TypeName daoClassName = ClassName.get(Constants.DAO_PACKAGE, DAO_CLASS_NAME);
     public static final TypeName dbHelperClassName = ClassName.get(Constants.DAO_PACKAGE, DATABASE_HELPER_CLASS_NAME);
     public static final TypeName queryBuilderClassName = ClassName.get(Constants.DAO_PACKAGE, QUERY_BUILDER_SUFFIX);
+    public static final TypeName databaseCommonInterfaceClassName = ClassName.get(Constants.DAO_PACKAGE, DATABASE_COMMON_INTERFACE_NAME);
     public static final TypeName migrator = ClassName.get(Constants.DAO_PACKAGE+".migration", MIGRATOR);
 
     public static final TypeName applicationClassName = ClassName.get("android.app", "Application");
     public static final TypeName databaseClassName = ClassName.get("android.database.sqlite", "SQLiteDatabase");
-    public static final TypeName databaseCommonInterfaceClassName = ClassName.get(DAO_PACKAGE+".api", DATABASE_COMMON_INTERFACE_NAME);
     public static final TypeName sqliteOpenHelperClassName = ClassName.get("android.database.sqlite", "SQLiteOpenHelper");
     public static final TypeName contextClassName = ClassName.get("android.content", "Context");
     public static final TypeName cursorClassName = ClassName.get("android.database", "Cursor");
