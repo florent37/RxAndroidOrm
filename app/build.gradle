@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion project.COMPILE_SDK
@@ -9,10 +11,6 @@ android {
         targetSdkVersion project.TARGET_SDK
         versionCode 1
         versionName "1.0"
-
-        jackOptions{
-            enabled = true;
-        }
     }
     buildTypes {
         release {
@@ -37,13 +35,13 @@ dependencies {
 
     compile 'io.reactivex.rxjava2:rxjava:2.0.6'
 
-    //compile 'com.github.florent37:rxandroidorm:1.0.1'
-    //provided 'com.github.florent37:rxandroidorm-annotations:1.0.1'
-    //annotationProcessor 'com.github.florent37:rxandroidorm-compiler:1.0.1'
+    compile 'com.github.florent37:rxandroidorm:1.0.2'
+    provided 'com.github.florent37:rxandroidorm-annotations:1.0.2'
+    apt 'com.github.florent37:rxandroidorm-compiler:1.0.2'
 
-    compile project(':rxandroidorm')
-    provided project(':rxandroidorm-annotations')
-    annotationProcessor project(':rxandroidorm-compiler')
+    //compile project(':rxandroidorm')
+    //provided project(':rxandroidorm-annotations')
+    //apt project(':rxandroidorm-compiler')
 
     compile 'com.facebook.stetho:stetho:1.4.2'
 

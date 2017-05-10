@@ -31,8 +31,8 @@ ext {
 
     libraryDescription = 'A simple & fluent Android ORM'
 
-    siteUrl = 'https://github.com/florent37/Freezer'
-    gitUrl = 'https://github.com/florent37/Freezer.git'
+    siteUrl = 'https://github.com/florent37/RxAndroidOrm'
+    gitUrl = 'https://github.com/florent37/RxAndroidOrm.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 

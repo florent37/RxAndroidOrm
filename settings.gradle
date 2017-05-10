@@ -1,1 +1,4 @@
-include ':app', ':rxandroidorm', ':rxandroidorm-compiler', ':rxandroidorm-annotations'
+include ':app',
+        ':rxandroidorm',
+        ':rxandroidorm-compiler',
+        ':rxandroidorm-annotations'
