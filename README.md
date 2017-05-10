@@ -39,7 +39,7 @@ computerDb.select()
 
 # First, initialize !
 
-Don't forget to initialise Freezer in your applicarion:
+Don't forget to initialise RxAndroidOrm in your applicarion:
 
 ```java
 public class MyApplicarion extends Applicarion {
