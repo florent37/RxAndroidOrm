@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion project.COMPILE_SDK
@@ -11,6 +9,10 @@ android {
         targetSdkVersion project.TARGET_SDK
         versionCode 1
         versionName "1.0"
+
+        jackOptions{
+            enabled = true;
+        }
     }
     buildTypes {
         release {
@@ -31,22 +33,23 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
 
     compile 'io.reactivex.rxjava2:rxjava:2.0.6'
 
-    provided project(':rxandroidorm-annotations')
-    apt project(':rxandroidorm-compiler')
+    //compile 'com.github.florent37:rxandroidorm:1.0.1'
+    //provided 'com.github.florent37:rxandroidorm-annotations:1.0.1'
+    //annotationProcessor 'com.github.florent37:rxandroidorm-compiler:1.0.1'
+
     compile project(':rxandroidorm')
+    provided project(':rxandroidorm-annotations')
+    annotationProcessor project(':rxandroidorm-compiler')
 
     compile 'com.facebook.stetho:stetho:1.4.2'
 
-    //apt "fr.xebia.android.freezer:freezer-compiler:0.0.1"
-    //provided "fr.xebia.android.freezer:freezer-annotations:0.0.1"
-
     testCompile(
             'junit:junit:4.12',
-            'com.android.support:support-annotations:23.1.1',
+            'com.android.support:support-annotations:25.3.1',
             'org.mockito:mockito-core:1.10.19',
             'org.assertj:assertj-core:1.7.1',
             'com.google.truth:truth:0.28'
